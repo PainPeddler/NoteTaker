@@ -10,7 +10,7 @@ notes.get('/', (req, res) => {
 });
 
 // GET Route for note
-notes.get('/:id', (req, res) => {
+notes.get("/", (req, res) => {
   const noteIdent = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))

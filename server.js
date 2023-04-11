@@ -15,12 +15,12 @@ app.use(express.static('public'));
 
 // GET Route for notes
 app.get('/notes.js', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/index.html'))
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
 // GET Route for the main page
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/pages/index.html'))
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 // Server initialization
 app.listen(PORT, () =>
