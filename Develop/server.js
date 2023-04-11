@@ -21,7 +21,7 @@ app.get('/', (req, res) =>
 app.get('/feedback', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/pages/feedback.html'))
 );
-//server initialization
+// Server initialization
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
