@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/index.js');
 
+//port 3001 being used. can be changed if necessary
 const PORT = process.env.port || 3001;
 const app = express();
 
