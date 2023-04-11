@@ -5,7 +5,6 @@ const {readFromFile,readAndAppend} = require('../helpers/fsUtils');
 // GET Route for reading notes from file
 notes.get('/', (req, res) => {
   readFromFile('./db/db.json').then((data) => {
-    // console.log(`Raw data in db is: ${data}`);
     res.json(JSON.parse(data));
   })
 });
@@ -19,7 +18,7 @@ notes.get('/:id', (req, res) => {
       const result = json.filter((note) => note.id === noteIdent);
       return result.length > 0
         ? res.json(result)
-        : res.json('No note with that ID');
+        : res.json('No note with that Identifier');
     });
 });
 
