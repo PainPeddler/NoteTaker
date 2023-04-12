@@ -10,15 +10,15 @@ notes.get('/', (req, res) => {
 });
 
 // GET Route for note
-notes.get("/", (req, res) => {
-  const noteIdent = req.params.id;
+notes.get('/:text', (req, res) => {
+  const ID = req.params.id;
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
-      const result = json.filter((note) => note.id === noteIdent);
+      const result = json.filter((note) => note.id === ID);
       return result.length > 0
         ? res.json(result)
-        : res.json('No note with that Identifier');
+        : res.json('No note with that ID');
     });
 });
 
@@ -29,9 +29,9 @@ notes.post('/', (req, res) => {
   const {title, text} = req.body;
 
   if (req.body) {
-    const Note = {title,text,id: uuidv4(),};
+    const newNote = {title,text,id: uuidv4()};
 
-    readAndAppend(Note, './db/db.json');
+    readAndAppend(newNote, './db/db.json');
     res.json(`Note documented successfully`);
   } else {
     res.error('Error note could not documented');
